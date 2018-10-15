@@ -1,0 +1,22 @@
+<div class="col-md-12 text-center">
+  <h3>{{ category$.name }}</h3>
+  <br>
+</div>
+
+<div class="col-md-12">
+  <div class="row card-group">
+    <div *ngFor="let product of products$" class="col-md-6 ">
+      <div class="row justify-content-center">
+        <div class="card col-md-8 align-self-center">
+          <img class="card-img-top" src="assets/images/hibousocks.jpg" alt="Card image cap">
+          <div class="card-body text-center">
+            <h5 class="card-title"><a routerLink="/categories/{{ product.id }}">{{ product.title }}</a></h5>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

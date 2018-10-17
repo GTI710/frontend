@@ -1,3 +1,13 @@
-<p>
-  cart works!
-</p>
+<div class="col-md-12 text-center">
+  <h3>Panier</h3>
+  <br>
+</div>
+
+<div class="col-md-12">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let product of products$">
+      <a routerLink="/products/{{ product.id }}">{{ product.name }}</a>
+      <p>9.99$</p>
+    </li>
+  </ul>
+</div>

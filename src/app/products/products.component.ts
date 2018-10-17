@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DataService} from '../data.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -7,9 +9,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor() { }
+  product$: Object;
+
+  constructor(private data: DataService, private route: ActivatedRoute) {
+    this.route.params.subscribe(params => this.product$ = params.id);
+  }
+
+  addToCart(id: number): boolean {
+    if (id !== null && id !== undefined) {
+      let itemsInCart = [];
+      if (localStorage.getItem('itemsInCart') !== null) {
+        itemsInCart = JSON.parse(localStorage.getItem('itemsInCart'));
+      }
+
+      itemsInCart.push(id);
+      localStorage.setItem('itemsInCart', JSON.stringify(itemsInCart));
+      return true;
+    }
+
+    return false;
+  }
 
   ngOnInit() {
+    this.data.getProduct(this.product$).subscribe(
+      data => this.product$ = data
+    );
   }
 
 }

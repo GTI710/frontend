@@ -19,4 +19,7 @@ export class DataService {
   getProductsInCategory(categorieId) {
     return this.http.get('https://jsonplaceholder.typicode.com/posts?userId=' + categorieId);
   }
+  getProduct(productId) {
+    return this.http.get('https://jsonplaceholder.typicode.com/users/' + productId);
+  }
 }

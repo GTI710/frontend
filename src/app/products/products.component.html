@@ -1,3 +1,27 @@
-<p>
-  products works!
-</p>
+<div class="col-md-12 text-center">
+  <h3>{{ product$.name }}</h3>
+  <br>
+</div>
+
+<div class="col-md-12 row">
+  <div class="col-md-6">
+    <div class="card align-self-center">
+      <img class="card-img-top" src="assets/images/hskeletonsocks.jpg" alt="Card image cap">
+    </div>
+  </div>
+
+  <div class="col-md-6" id="product-info">
+    <div class="col-md-12">
+      <h4>{{ product$.email }}</h4>
+    </div>
+    <div class="col-md-12">
+      <h5>{{ product$.username }}</h5>
+    </div>
+    <div class="col-md-12">
+      <br>
+    </div>
+    <div class="col-md-12 text-center">
+      <button type="button" class="btn btn-lg btn-primary" (click)="addToCart(product$.id)">Ajouter au panier</button>
+    </div>
+  </div>
+</div>

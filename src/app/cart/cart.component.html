@@ -6,8 +6,9 @@
 <div class="col-md-12">
   <ul class="list-group">
     <li class="list-group-item" *ngFor="let product of products$">
-      <a routerLink="/products/{{ product.id }}">{{ product.name }}</a>
-      <p>9.99$</p>
+      <a routerLink="/products/{{ product.idProductTemplate }}">{{ product.name }}</a>
+      <p>{{ product.listPrice+" $" }}</p>
+      <p>{{ product.countInCart }}</p>
     </li>
   </ul>
 </div>

@@ -14,16 +14,22 @@ export class CartComponent implements OnInit {
   constructor(private data: DataService) { }
 
   ngOnInit() {
-    let itemsInCart = [];
+    let itemsInCart = {};
     this.products$ = [];
 
     if (localStorage.getItem('itemsInCart') !== null && localStorage.getItem('itemsInCart') !== undefined) {
       itemsInCart = JSON.parse(localStorage.getItem('itemsInCart'));
     }
 
-    for (const item of itemsInCart) {
+    const keysItemsInCart = Object.keys(itemsInCart);
+
+    for (const item of keysItemsInCart) {
       this.data.getProduct(item).subscribe(
-        data => this.products$.push(data)
+        data => {
+          const modifiedItem = data['product'];
+          modifiedItem.countInCart = itemsInCart[item];
+          this.products$.push(modifiedItem);
+        }
       );
     }
 

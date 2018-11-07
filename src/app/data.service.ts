@@ -9,17 +9,17 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   getCategories() {
-    return this.http.get('https://jsonplaceholder.typicode.com/users');
+    return this.http.get('http://localhost:8080/api/productcategory');
   }
 
   getCategorie(categorieId) {
-    return this.http.get('https://jsonplaceholder.typicode.com/users/' + categorieId);
+    return this.http.get('http://localhost:8080/api/productcategory/' + categorieId);
   }
 
   getProductsInCategory(categorieId) {
-    return this.http.get('https://jsonplaceholder.typicode.com/posts?userId=' + categorieId);
+    return this.http.get('http://localhost:8080/api/product/findall/' + categorieId);
   }
   getProduct(productId) {
-    return this.http.get('https://jsonplaceholder.typicode.com/users/' + productId);
+    return this.http.get('http://localhost:8080/api/product/' + productId);
   }
 }

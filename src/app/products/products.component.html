@@ -12,16 +12,16 @@
 
   <div class="col-md-6" id="product-info">
     <div class="col-md-12">
-      <h4>{{ product$.email }}</h4>
+      <h4>{{ product$.description }}</h4>
     </div>
     <div class="col-md-12">
-      <h5>{{ product$.username }}</h5>
+      <h5>{{ product$.listPrice+" $" }} </h5>
     </div>
     <div class="col-md-12">
       <br>
     </div>
     <div class="col-md-12 text-center">
-      <button type="button" class="btn btn-lg btn-primary" (click)="addToCart(product$.id)">Ajouter au panier</button>
+      <button type="button" class="btn btn-lg btn-primary" (click)="addToCart(product$.idProductTemplate)">Ajouter au panier</button>
     </div>
   </div>
 </div>

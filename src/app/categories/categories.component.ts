@@ -19,11 +19,11 @@ export class CategoriesComponent implements OnInit {
 
   ngOnInit() {
     this.data.getCategorie(this.category$).subscribe(
-      data => this.category$ = data
+      data => this.category$ = data['productCategory']
     );
 
     this.data.getProductsInCategory(this.category$).subscribe(
-      data => this.products$ = data
+      data => this.products$ = data['products']
     );
   }
 

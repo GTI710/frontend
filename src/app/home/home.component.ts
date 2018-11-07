@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.data.getCategories().subscribe(
-      data => this.categories$ = data
+      data => this.categories$ = data['productCategories']
     );
   }
 

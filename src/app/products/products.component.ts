@@ -17,12 +17,12 @@ export class ProductsComponent implements OnInit {
 
   addToCart(id: number): boolean {
     if (id !== null && id !== undefined) {
-      let itemsInCart = [];
+      let itemsInCart = {};
       if (localStorage.getItem('itemsInCart') !== null) {
         itemsInCart = JSON.parse(localStorage.getItem('itemsInCart'));
       }
 
-      itemsInCart.push(id);
+      itemsInCart[id] = 1;
       localStorage.setItem('itemsInCart', JSON.stringify(itemsInCart));
       return true;
     }
@@ -32,7 +32,7 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit() {
     this.data.getProduct(this.product$).subscribe(
-      data => this.product$ = data
+      data => this.product$ = data['product']
     );
   }
 

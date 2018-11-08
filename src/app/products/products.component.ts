@@ -15,14 +15,14 @@ export class ProductsComponent implements OnInit {
     this.route.params.subscribe(params => this.product$ = params.id);
   }
 
-  addToCart(id: number): boolean {
+  addToCart(id: number, quantity: string): boolean {
     if (id !== null && id !== undefined) {
       let itemsInCart = {};
       if (localStorage.getItem('itemsInCart') !== null) {
         itemsInCart = JSON.parse(localStorage.getItem('itemsInCart'));
       }
 
-      itemsInCart[id] = 1;
+      itemsInCart[id] = +quantity;
       localStorage.setItem('itemsInCart', JSON.stringify(itemsInCart));
       return true;
     }

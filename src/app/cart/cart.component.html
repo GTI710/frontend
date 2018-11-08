@@ -3,7 +3,7 @@
   <br>
 </div>
 
-<div class="col-md-12">
+<div class="col-md-8 d-inline-block">
   <ul class="list-group">
     <li class="list-group-item" *ngFor="let product of products$">
       <a routerLink="/products/{{ product.idProductTemplate }}">{{ product.name }}</a>
@@ -11,4 +11,14 @@
       <p>{{ product.countInCart }}</p>
     </li>
   </ul>
+</div>
+
+<div class="col-md-4 d-inline-block text-center">
+  <h4>Facture</h4>
+  <div class="col-md-12">
+    <hr>
+  </div>
+  <div class="col-md-12" *ngFor="let product of products$">
+    <p>{{ product.name }}: <b>{{ (product.listPrice*product.countInCart)+" $" }}</b></p>
+  </div>
 </div>

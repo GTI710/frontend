@@ -20,8 +20,12 @@
     <div class="col-md-12">
       <br>
     </div>
-    <div class="col-md-12 text-center">
-      <button type="button" class="btn btn-lg btn-primary" (click)="addToCart(product$.idProductTemplate)">Ajouter au panier</button>
+    <div class="col-md-4 d-inline-block">
+      <label class="d-inline-block" for="quantity"><h4>Quantité&nbsp;</h4> </label>
+      <input #quantity type="number" name="quantity" id="quantity" class="d-inline-block" min="1" max="10" value="1">
+    </div>
+    <div class="col-md-6 d-inline-block text-left">
+      <button type="button" class="btn btn-lg btn-primary" (click)="addToCart(product$.idProductTemplate, quantity.value)">Ajouter au panier</button>
     </div>
   </div>
 </div>

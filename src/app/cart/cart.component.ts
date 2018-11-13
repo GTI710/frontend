@@ -13,6 +13,24 @@ export class CartComponent implements OnInit {
 
   constructor(private data: DataService) { }
 
+  modifyProductQuantity(id: number, quantity: string): boolean {
+    if (id !== null && id !== undefined) {
+      let itemsInCart = {};
+      if (localStorage.getItem('itemsInCart') !== null) {
+        itemsInCart = JSON.parse(localStorage.getItem('itemsInCart'));
+      }
+
+      itemsInCart[id] = +quantity;
+      localStorage.setItem('itemsInCart', JSON.stringify(itemsInCart));
+
+      // @ts-ignore
+      this.products$.filter(x => x.idProductTemplate === id)[0].countInCart = +quantity;
+      return true;
+    }
+
+    return false;
+  }
+
   ngOnInit() {
     let itemsInCart = {};
     this.products$ = [];

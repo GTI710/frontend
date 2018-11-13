@@ -6,9 +6,17 @@
 <div class="col-md-8 d-inline-block">
   <ul class="list-group">
     <li class="list-group-item" *ngFor="let product of products$">
-      <a routerLink="/products/{{ product.idProductTemplate }}">{{ product.name }}</a>
-      <p>{{ product.listPrice+" $" }}</p>
-      <p>{{ product.countInCart }}</p>
+      <div class="col-md-6 d-inline-block">
+        <a routerLink="/products/{{ product.idProductTemplate }}">{{ product.name }}</a>
+      </div>
+      <div class="col-md-3 d-inline-block">
+        <p>{{ product.listPrice+" $" }}</p>
+      </div>
+      <div class="col-md-3 d-inline-block">
+        <input #quantity type="number" name="quantity" id="quantity" class="d-inline-block" min="1" max="10"
+               value="{{ product.countInCart }}"
+               (change)="modifyProductQuantity(product.idProductTemplate, quantity.value)">
+      </div>
     </li>
   </ul>
 </div>

@@ -1,0 +1,7 @@
+.list-group-item p {
+  margin-bottom: 0;
+}
+
+input[type=number] {
+  border-color:rgba(0, 0, 0, 0.125);
+}

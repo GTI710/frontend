@@ -1,0 +1,56 @@
+<div class="col-md-12 text-center">
+  <h3>Panier</h3>
+  <br>
+</div>
+
+<div class="col-md-8 d-inline-block">
+  <form class="col-md-12 d-inline-block">
+    <div class="form-group col-md-11 d-inline-block">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" required>
+    </div>
+
+    <div class="form-group col-md-11 d-inline-block">
+      <label for="street">Adresse</label>
+      <input type="text" class="form-control" id="street" required>
+    </div>
+
+    <div class="form-group col-md-11 d-inline-block">
+      <label for="city">Ville</label>
+      <input type="text" class="form-control" id="city" required>
+    </div>
+
+    <div class="form-group col-md-11 d-inline-block">
+      <label for="country">Pays</label>
+      <input type="text" class="form-control" id="country" required>
+    </div>
+
+    <div class="form-group col-md-11 d-inline-block">
+      <label for="zipcode">Zip Code</label>
+      <input type="text" class="form-control" id="zipcode" required>
+    </div>
+
+    <div class="form-group col-md-11 d-inline-block">
+      <label for="total"></label>
+      <input type="text" class="form-control" id="total" hidden>
+    </div>
+
+    <div class="form-group col-md-11 d-inline-block text-center">
+      <button type="submit" class="btn btn-lg btn-primary">Payer</button>
+    </div>
+  </form>
+</div>
+
+<div class="col-md-4 d-inline-block float-md-right text-center">
+  <h4>Facture</h4>
+  <div class="col-md-12">
+    <hr>
+  </div>
+  <div class="col-md-12" *ngFor="let product of products$">
+    <p>{{ product.name }}: <b>{{ (product.listPrice*product.countInCart)+" $" }}</b></p>
+  </div>
+  <div class="col-md-12">
+    <hr>
+  </div>
+  <h5>Total(taxes incl.): <b>{{ (partialTotal$ * 1.15).toFixed(2)+" $" }}</b></h5>
+</div>

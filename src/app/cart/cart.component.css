@@ -5,3 +5,11 @@
 input[type=number] {
   border-color:rgba(0, 0, 0, 0.125);
 }
+
+.icon-wrapper {
+  vertical-align: middle;
+}
+
+.icon-wrapper i {
+  cursor: pointer;
+}

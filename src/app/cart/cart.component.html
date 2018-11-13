@@ -12,16 +12,19 @@
       <div class="col-md-3 d-inline-block">
         <p>{{ product.listPrice+" $" }}</p>
       </div>
-      <div class="col-md-3 d-inline-block">
+      <div class="col-md-2 d-inline-block">
         <input #quantity type="number" name="quantity" id="quantity" class="d-inline-block" min="1" max="10"
                value="{{ product.countInCart }}"
                (change)="modifyProductQuantity(product.idProductTemplate, quantity.value)">
+      </div>
+      <div class="col-md-1 d-inline-block icon-wrapper">
+        <i class="material-icons" (click)="removeFromCart(product.idProductTemplate)">remove_shopping_cart</i>
       </div>
     </li>
   </ul>
 </div>
 
-<div class="col-md-4 d-inline-block text-center">
+<div class="col-md-4 d-inline-block float-md-right text-center">
   <h4>Facture</h4>
   <div class="col-md-12">
     <hr>
@@ -29,4 +32,14 @@
   <div class="col-md-12" *ngFor="let product of products$">
     <p>{{ product.name }}: <b>{{ (product.listPrice*product.countInCart)+" $" }}</b></p>
   </div>
+  <div class="col-md-12">
+    <hr>
+  </div>
+  <h5>Total(taxes incl.): <b>{{ (partialTotal$ * 1.15).toFixed(2)+" $" }}</b></h5>
+  <div class="col-md-12">
+    <br>
+  </div>
+  <a class="btn btn-lg btn-primary" routerLink="../checkout">
+    Cliquer ici pour payer
+  </a>
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService} from '../data.service';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -11,10 +12,9 @@ export class CheckoutComponent implements OnInit {
 
   products$: Array<Object>;
   partialTotal$: number;
-  backend_url: string;
   response: any;
 
-  constructor(private data: DataService) { }
+  constructor(private data: DataService, private router: Router) { }
 
   onSubmit(name, street, city, country, zipcode, total) {
     const input = {
@@ -28,7 +28,8 @@ export class CheckoutComponent implements OnInit {
 
     this.data.createNewSale(input).subscribe(data => {
       this.response = data;
-      console.log(this.response);
+      // console.log(this.response);
+      this.router.navigateByUrl('/thankyou/' + this.response['sale']['idSaleTable']);
     });
   }
 

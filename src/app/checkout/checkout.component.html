@@ -4,41 +4,38 @@
 </div>
 
 <div class="col-md-8 d-inline-block">
-  <form class="col-md-12 d-inline-block">
+  <div class="col-md-12 d-inline-block">
     <div class="form-group col-md-11 d-inline-block">
       <label for="name">Name</label>
-      <input type="text" class="form-control" id="name" required>
+      <input #name type="text" class="form-control" id="name" required>
     </div>
 
     <div class="form-group col-md-11 d-inline-block">
       <label for="street">Adresse</label>
-      <input type="text" class="form-control" id="street" required>
+      <input #street type="text" class="form-control" id="street" required>
     </div>
 
     <div class="form-group col-md-11 d-inline-block">
       <label for="city">Ville</label>
-      <input type="text" class="form-control" id="city" required>
+      <input #city type="text" class="form-control" id="city" required>
     </div>
 
     <div class="form-group col-md-11 d-inline-block">
       <label for="country">Pays</label>
-      <input type="text" class="form-control" id="country" required>
+      <input #country type="text" class="form-control" id="country" required>
     </div>
 
     <div class="form-group col-md-11 d-inline-block">
       <label for="zipcode">Zip Code</label>
-      <input type="text" class="form-control" id="zipcode" required>
+      <input #zipcode type="text" class="form-control" id="zipcode" required>
     </div>
 
-    <div class="form-group col-md-11 d-inline-block">
-      <label for="total"></label>
-      <input type="text" class="form-control" id="total" hidden>
-    </div>
+    <input #total type="text" class="form-control" id="total" value="{{ (partialTotal$ * 1.15).toFixed(2) }}" hidden required>
 
     <div class="form-group col-md-11 d-inline-block text-center">
-      <button type="submit" class="btn btn-lg btn-primary">Payer</button>
+      <button type="submit" class="btn btn-lg btn-primary" (click)="onSubmit(name.value, street.value, city.value, country.value, zipcode.value, total.value)">Payer</button>
     </div>
-  </form>
+  </div>
 </div>
 
 <div class="col-md-4 d-inline-block float-md-right text-center">

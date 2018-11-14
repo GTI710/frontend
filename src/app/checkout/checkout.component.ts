@@ -11,13 +11,25 @@ export class CheckoutComponent implements OnInit {
 
   products$: Array<Object>;
   partialTotal$: number;
+  backend_url: string;
+  response: any;
 
   constructor(private data: DataService) { }
 
-  calculatePartialTotal() {
-    this.partialTotal$ = 0;
-    // @ts-ignore
-    this.products$.forEach(x => this.partialTotal$ += Number(x.listPrice * x.countInCart));
+  onSubmit(name, street, city, country, zipcode, total) {
+    const input = {
+      'nameClient': name,
+      'street': street,
+      'city': city,
+      'country': country,
+      'zipcode': zipcode,
+      'amount': total
+    };
+
+    this.data.createNewSale(input).subscribe(data => {
+      this.response = data;
+      console.log(this.response);
+    });
   }
 
   ngOnInit() {

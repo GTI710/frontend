@@ -18,6 +18,9 @@
       <h5>{{ product$.listPrice+" $" }} </h5>
     </div>
     <div class="col-md-12">
+      <h4><b>{{ overallRating$ }}</b>/10&nbsp;<i class="material-icons" style="transform: translate(0, 10%)">star_rate</i></h4>
+    </div>
+    <div class="col-md-12">
       <br>
     </div>
     <div class="col-md-4 d-inline-block">
@@ -28,4 +31,27 @@
       <button type="button" class="btn btn-lg btn-primary" (click)="addToCart(product$.idProductTemplate, quantity.value)">Ajouter au panier</button>
     </div>
   </div>
+
+  <div class="col-md-12">
+    <br>
+  </div>
+
+  <div class="col-md-12 d-inline-block opinion-block">
+    <div class="col-md-4 d-inline-block float-left" id="rating-form">
+      <label for="rating">Votre évaluation:&nbsp;</label>
+      <select #selectedRating name="rating" id="rating" class="" (change)="onChangeRating(selectedRating.value, product$.idProductTemplate)">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+
+    <div class="col-md-8 d-inline-block" id="comment-form">
+      <textarea #comments class="form-control" id="comments" placeholder="Vos commentaires ici..." rows="3"></textarea>
+      <button type="button" class="btn btn-md btn-primary pull-right" (click)="addComment(comments.value, product$.idProductTemplate)">Envoyer</button>
+    </div>
+  </div>
+
 </div>

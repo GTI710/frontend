@@ -41,6 +41,30 @@ export class DataService {
     return this.http.get('http://localhost:8080/api/sale/' + saleId);
   }
 
+  createNewRatingReview(formData) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    return this.http.post('http://localhost:8080/api/rating', formData, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  createNewCommentReview(formData) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    return this.http.post('http://localhost:8080/api/comment', formData, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

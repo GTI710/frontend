@@ -27,6 +27,10 @@ export class ProductsComponent implements OnInit {
 
       itemsInCart[id] = +quantity;
       localStorage.setItem('itemsInCart', JSON.stringify(itemsInCart));
+      document.getElementById('cart-add-alert').classList.remove('d-none');
+      setTimeout(function() {
+        document.getElementById('cart-add-alert').classList.add('d-none');
+      }, 3000);
       return true;
     }
 

@@ -8,7 +8,7 @@
     <div *ngFor="let product of products$" class="col-md-6 ">
       <div class="row justify-content-center">
         <div class="card col-md-8 align-self-center">
-          <img class="card-img-top" src="assets/images/hskeletonsocks.jpg" alt="Card image cap">
+          <img class="card-img-top" src="http://gti710-20183-06.logti.etsmtl.ca:8069/web/image/product.template/{{ product.idProductTemplate }}/image" alt="Card image cap">
           <div class="card-body text-center">
             <h5 class="card-title"><a routerLink="/products/{{ product.idProductTemplate }}">{{ product.name }}</a></h5>
           </div>

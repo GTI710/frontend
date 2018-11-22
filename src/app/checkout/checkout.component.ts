@@ -28,6 +28,7 @@ export class CheckoutComponent implements OnInit {
 
     this.data.createNewSale(input).subscribe(data => {
       this.response = data;
+      localStorage.removeItem('itemsInCart');
       // console.log(this.response);
       this.router.navigateByUrl('/thankyou/' + this.response['sale']['idSaleTable']);
     });

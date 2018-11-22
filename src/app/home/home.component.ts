@@ -15,7 +15,15 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.data.getCategories().subscribe(
-      data => this.categories$ = data['productCategories']
+      data => {
+        this.categories$ = data['productCategories'];
+        // @ts-ignore
+        this.categories$.forEach( (item, index) => {
+          if (item.idProductCategory === 1) {
+            // @ts-ignore
+            this.categories$.splice(index, 1); }
+        });
+      }
     );
   }
 

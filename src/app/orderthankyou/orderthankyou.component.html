@@ -1,3 +1,12 @@
-<p>
- {{ sale$ }}
-</p>
+<div class="col-md-12 text-center">
+  <div class="col-md-12">
+    <br>
+  </div>
+  <h2><b>Merci votre commande #{{ sale$.salesNumber }}</b></h2>
+  <div class="col-md-12">
+    <br>
+  </div>
+  <div class="col-md-6 offset-3">
+    <h4>Un montant de {{ sale$.amount }}$ sera facturé sur votre carte de crédit dans <b>les 3 à 5 jours ouvrables</b>.</h4>
+  </div>
+</div>

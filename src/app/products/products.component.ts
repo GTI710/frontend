@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DataService} from '../data.service';
 import {ActivatedRoute} from '@angular/router';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-products',
@@ -35,6 +36,10 @@ export class ProductsComponent implements OnInit {
     }
 
     return false;
+  }
+
+  formatDate(tempDate: string): string {
+    return moment(tempDate).format('MMMM Do YYYY');
   }
 
   toFixed(numferToFixed, numberOfDigits: number ): number {

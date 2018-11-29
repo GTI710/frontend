@@ -7,7 +7,7 @@
     <div *ngFor="let category of categories$" class="col-md-6 ">
       <div class="row justify-content-center">
         <div class="card col-md-8 align-self-center">
-          <img class="card-img-top" src="assets/images/hibousocks.jpg" alt="Card image cap">
+          <img class="card-img-top" src="assets/images/{{ category.idProductCategory }}.jpg" alt="Card image cap">
           <div class="card-body text-center">
             <h5 class="card-title"><a routerLink="/categories/{{ category.idProductCategory }}">{{ category.name }}</a></h5>
           </div>
